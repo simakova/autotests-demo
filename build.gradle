@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+group 'autotests'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile group: 'com.codeborne', name: 'selenide', version: '5.7.0'
+    compileOnly "org.projectlombok:lombok:1.16.16"
+    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.0.0'
+
+}
+test {
+    useTestNG() {
+        useDefaultListeners = true
+        groupByInstances = true
+    }
+}
